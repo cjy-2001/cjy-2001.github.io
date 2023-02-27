@@ -28,18 +28,11 @@
     "text": "Math\nIn addition to regular text using the Markdown specification, you can also write mathematics, enclosed between dollar signs. The syntax for writing math is very similar to the syntax used in the \\(\\LaTeX\\) markup language. For example, $f(x) \\approx y$ renders to \\(f(x) \\approx y\\). To place complex mathematical expressions on their own lines, use double dollar signs. For example, the expression\n$$\\mathcal{L}(a, b) = \\sum_{i = 1}^n (ax_i + b - y_i)^2$$\nrenders to:\n\\[\\mathcal{L}(a, b) = \\sum_{i = 1}^n (ax_i + b - y_i)^2\\;.\\]\nBehind the scenes, math is powered by the MathJax engine. For more on how to write math, check this handy tutorial and quick reference."
   },
   {
-    "objectID": "posts/test-post/index.html",
-    "href": "posts/test-post/index.html",
-    "title": "Test Blog",
-    "section": "",
-    "text": "Hello World"
-  },
-  {
     "objectID": "posts/perceptron-post/perceptron.html",
     "href": "posts/perceptron-post/perceptron.html",
     "title": "Perceptron Post",
     "section": "",
-    "text": "import numpy as np\nimport pandas as pd\nimport seaborn as sns\nfrom matplotlib import pyplot as plt\nimport perceptron\nfrom perceptron import Perceptron\nfrom sklearn.datasets import make_blobs\n\nperceptron.my_custom_function()\n\nI implemented this function in the file perceptron.py\nAnd here is the link to my source code (source.py):"
+    "text": "import numpy as np\nimport pandas as pd\nimport seaborn as sns\nfrom matplotlib import pyplot as plt\nimport perceptron\nfrom perceptron import Perceptron\nfrom sklearn.datasets import make_blobs\n\nperceptron.my_custom_function()\n\nI implemented this function in the file perceptron.py\nAnd here is the link to my source code (source.py): https://github.com/cjy-2001/cjy-2001.github.io/blob/main/posts/perceptron-post/perceptron.py"
   },
   {
     "objectID": "posts/perceptron-post/perceptron.html#section",
@@ -63,10 +56,10 @@
     "text": "3\nIn part 3, I’d like to show that my algorithm is also able to work in more than 2 dimensions.\n\n#make some data\nnp.random.seed(123456)\n\nn = 100\np_features = 5\n\nX, y = make_blobs(n_samples = 100, n_features = p_features - 1, centers = [(-1.7, -1.7), (1.7, 1.7)])\n\np = Perceptron()\np.fit(X, y, max_steps = 1000)\n\nprint(p.history[-10:])\n\nfig = plt.plot(p.history)\nxlab = plt.xlabel(\"Iteration\")\nylab = plt.ylabel(\"Accuracy\")\n\n[0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 1.0]\n\n\n\n\n\nTherefore, according to the evolution of the score over the training period, I believe that the data is linearly separable, because the accuracy has reached 1."
   },
   {
-    "objectID": "posts/perceptron-post/perceptron.html#what-is-the-runtime-complexity-of-a-single-iteration-of-the-perceptron-algorithm-update-as-described-by-equation-1-assume-that-the-relevant-operations-are-addition-and-multiplication.-does-the-runtime-complexity-depend-on-the-number-of-data-points-what-about-the-number-of-features",
-    "href": "posts/perceptron-post/perceptron.html#what-is-the-runtime-complexity-of-a-single-iteration-of-the-perceptron-algorithm-update-as-described-by-equation-1-assume-that-the-relevant-operations-are-addition-and-multiplication.-does-the-runtime-complexity-depend-on-the-number-of-data-points-what-about-the-number-of-features",
-    "title": "Perceptron Post",
-    "section": "What is the runtime complexity of a single iteration of the perceptron algorithm update as described by Equation 1? Assume that the relevant operations are addition and multiplication. Does the runtime complexity depend on the number of data points? What about the number of features?",
-    "text": "What is the runtime complexity of a single iteration of the perceptron algorithm update as described by Equation 1? Assume that the relevant operations are addition and multiplication. Does the runtime complexity depend on the number of data points? What about the number of features?"
+    "objectID": "posts/test-post/index.html",
+    "href": "posts/test-post/index.html",
+    "title": "Test Blog",
+    "section": "",
+    "text": "Hello World"
   }
 ]
