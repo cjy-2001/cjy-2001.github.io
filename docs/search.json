@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "My Awesome CSCI 0451 Blog",
     "section": "",
-    "text": "A test blog for my CSCI 0451.\n\n\n\n\n\n\nFeb 15, 2023\n\n\nJiayi Chen\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nAn example blog post illustrating the key techniques you’ll need to demonstrate your learning in CSCI 0451.\n\n\n\n\n\n\nJan 10, 2023\n\n\nPhil Chodrow\n\n\n\n\n\n\nNo matching items"
+    "text": "First blog post for CSCI 451.\n\n\n\n\n\n\nFeb 26, 2023\n\n\nJiayi Chen\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nA test blog for my CSCI 0451.\n\n\n\n\n\n\nFeb 15, 2023\n\n\nJiayi Chen\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nAn example blog post illustrating the key techniques you’ll need to demonstrate your learning in CSCI 0451.\n\n\n\n\n\n\nJan 10, 2023\n\n\nPhil Chodrow\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/example-blog-post/index.html",
@@ -33,5 +33,40 @@
     "title": "Test Blog",
     "section": "",
     "text": "Hello World"
+  },
+  {
+    "objectID": "posts/perceptron-post/perceptron.html",
+    "href": "posts/perceptron-post/perceptron.html",
+    "title": "Perceptron Post",
+    "section": "",
+    "text": "import numpy as np\nimport pandas as pd\nimport seaborn as sns\nfrom matplotlib import pyplot as plt\nimport perceptron\nfrom perceptron import Perceptron\nfrom sklearn.datasets import make_blobs\n\nperceptron.my_custom_function()\n\nI implemented this function in the file perceptron.py\nAnd here is the link to my source code (source.py):"
+  },
+  {
+    "objectID": "posts/perceptron-post/perceptron.html#section",
+    "href": "posts/perceptron-post/perceptron.html#section",
+    "title": "Perceptron Post",
+    "section": "1",
+    "text": "1\nFirst, I’d like to use linearly separable data and draw some visualizations. From the graph, it is easy to tell that the data is linearly seperable.\n\nnp.random.seed(12345)\n\nn = 100\np_features = 3\n\nX, y = make_blobs(n_samples = 100, n_features = p_features - 1, centers = [(-1.7, -1.7), (1.7, 1.7)])\n\nfig = plt.scatter(X[:,0], X[:,1], c = y)\nxlab = plt.xlabel(\"Feature 1\")\nylab = plt.ylabel(\"Feature 2\") \n\n\n\n\n\np = Perceptron()\np.fit(X, y, max_steps = 1000)\n\nprint(p.history[-10:])\n\n[0.86, 0.86, 0.86, 0.84, 0.84, 0.81, 0.81, 0.5, 0.83, 0.83]\n\n\nAfter implementing my fit function from perceptron.py, I’m able to train my model based on the data. As we can see from the history of accuracy, the accuracy increases to 1. Then I want to draw a separating line and the evolution of the accuracy.\n\nfig = plt.plot(p.history)\nxlab = plt.xlabel(\"Iteration\")\nylab = plt.ylabel(\"Accuracy\")\n\n\n\n\nAfter confirming that my model has 100% accuracy, I want to visualize the linear line from the graph.\n\ndef draw_line(w, x_min, x_max):\n  x = np.linspace(x_min, x_max, 101)\n  y = -(w[0]*x + w[2])/w[1]\n  plt.plot(x, y, color = \"black\")\n\nfig = plt.scatter(X[:,0], X[:,1], c = y)\nfig = draw_line(p.w, -2, 2)\n\nxlab = plt.xlabel(\"Feature 1\")\nylab = plt.ylabel(\"Feature 2\")"
+  },
+  {
+    "objectID": "posts/perceptron-post/perceptron.html#section-1",
+    "href": "posts/perceptron-post/perceptron.html#section-1",
+    "title": "Perceptron Post",
+    "section": "2",
+    "text": "2\nFor the second part of my experiment, I’d like to use data that are not linearly separable and draw some visualizations.\n\nfrom sklearn.datasets import make_moons\n\nnp.random.seed(4)\n\nn = 100\n\nX, y = make_moons(n_samples=100, noise=0.13, random_state=42)\n\nfig = plt.scatter(X[:,0], X[:,1], c = y)\nxlab = plt.xlabel(\"Feature 1\")\nylab = plt.ylabel(\"Feature 2\") \n\np = Perceptron()\np.fit(X, y, max_steps = 1000)\n\nprint(p.history[-10:])\n\n[0.86, 0.86, 0.86, 0.86, 0.86, 0.8, 0.8, 0.8, 0.8, 0.8]\n\n\n\n\n\nThe picture tells us that the data is not linearly seperable, then we want to see how the accuracy performs.\n\nfig = plt.plot(p.history)\nxlab = plt.xlabel(\"Iteration\")\nylab = plt.ylabel(\"Accuracy\")\n\n\n\n\nLastly, the linear separating line also confirmed our previous findings.\n\nfig = plt.scatter(X[:,0], X[:,1], c = y)\nfig = draw_line(p.w, -2, 2)\n\nxlab = plt.xlabel(\"Feature 1\")\nylab = plt.ylabel(\"Feature 2\")"
+  },
+  {
+    "objectID": "posts/perceptron-post/perceptron.html#section-2",
+    "href": "posts/perceptron-post/perceptron.html#section-2",
+    "title": "Perceptron Post",
+    "section": "3",
+    "text": "3\nIn part 3, I’d like to show that my algorithm is also able to work in more than 2 dimensions.\n\n#make some data\nnp.random.seed(123456)\n\nn = 100\np_features = 5\n\nX, y = make_blobs(n_samples = 100, n_features = p_features - 1, centers = [(-1.7, -1.7), (1.7, 1.7)])\n\np = Perceptron()\np.fit(X, y, max_steps = 1000)\n\nprint(p.history[-10:])\n\nfig = plt.plot(p.history)\nxlab = plt.xlabel(\"Iteration\")\nylab = plt.ylabel(\"Accuracy\")\n\n[0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 1.0]\n\n\n\n\n\nTherefore, according to the evolution of the score over the training period, I believe that the data is linearly separable, because the accuracy has reached 1."
+  },
+  {
+    "objectID": "posts/perceptron-post/perceptron.html#what-is-the-runtime-complexity-of-a-single-iteration-of-the-perceptron-algorithm-update-as-described-by-equation-1-assume-that-the-relevant-operations-are-addition-and-multiplication.-does-the-runtime-complexity-depend-on-the-number-of-data-points-what-about-the-number-of-features",
+    "href": "posts/perceptron-post/perceptron.html#what-is-the-runtime-complexity-of-a-single-iteration-of-the-perceptron-algorithm-update-as-described-by-equation-1-assume-that-the-relevant-operations-are-addition-and-multiplication.-does-the-runtime-complexity-depend-on-the-number-of-data-points-what-about-the-number-of-features",
+    "title": "Perceptron Post",
+    "section": "What is the runtime complexity of a single iteration of the perceptron algorithm update as described by Equation 1? Assume that the relevant operations are addition and multiplication. Does the runtime complexity depend on the number of data points? What about the number of features?",
+    "text": "What is the runtime complexity of a single iteration of the perceptron algorithm update as described by Equation 1? Assume that the relevant operations are addition and multiplication. Does the runtime complexity depend on the number of data points? What about the number of features?"
   }
 ]
