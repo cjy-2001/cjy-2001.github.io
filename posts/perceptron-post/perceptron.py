@@ -41,4 +41,4 @@ class Perceptron:
 
     def score(self, X: np.matrix, y: np.ndarray) -> int:
         #Calculate the accuracy score of our prediction
-        return sum(np.equal(self.predict(X), y)) / len(y)
+        return sum(np.equal(self.predict(X), y)) / len(y) # type: ignore

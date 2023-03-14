@@ -53,7 +53,7 @@
     "href": "posts/perceptron-post/perceptron.html",
     "title": "Perceptron Post",
     "section": "",
-    "text": "import numpy as np\nimport pandas as pd\nimport seaborn as sns\nfrom matplotlib import pyplot as plt\nimport perceptron\nfrom perceptron import Perceptron\nfrom sklearn.datasets import make_blobs\n\nperceptron.my_custom_function()\n\nI implemented this function in the file perceptron.py\nAnd here is the link to my source code (source.py): https://github.com/cjy-2001/cjy-2001.github.io/blob/main/posts/perceptron-post/perceptron.py"
+    "text": "import numpy as np\nfrom matplotlib import pyplot as plt\nimport perceptron\nfrom perceptron import Perceptron\nfrom sklearn.datasets import make_blobs\n\nperceptron.my_custom_function()\n\nI implemented this function in the file perceptron.py\nAnd here is the link to my source code (source.py): https://github.com/cjy-2001/cjy-2001.github.io/blob/main/posts/perceptron-post/perceptron.py"
   },
   {
     "objectID": "posts/perceptron-post/perceptron.html#section",
