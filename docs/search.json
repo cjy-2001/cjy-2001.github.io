@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "My Awesome CSCI 0451 Blog",
     "section": "",
-    "text": "In this blog post, I will implement several first-order methods: optimization algorithms based on the gradients of functions. I will implement simple gradient descent, a momentum method, and stochastic gradient descent, comparing their performance for training logistic regression.\n\n\n\n\n\n\nMar 6, 2023\n\n\nJiayi Chen\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nFirst blog post for CSCI 451.\n\n\n\n\n\n\nFeb 26, 2023\n\n\nJiayi Chen\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nA test blog for my CSCI 0451.\n\n\n\n\n\n\nFeb 15, 2023\n\n\nJiayi Chen\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nAn example blog post illustrating the key techniques you’ll need to demonstrate your learning in CSCI 0451.\n\n\n\n\n\n\nJan 10, 2023\n\n\nPhil Chodrow\n\n\n\n\n\n\nNo matching items"
+    "text": "In this blog post, I will implement several first-order methods: optimization algorithms based on the gradients of functions, including simple gradient descent, a momentum method, and stochastic gradient descent. I will also compare their performance for training logistic regression.\n\n\n\n\n\n\nMar 6, 2023\n\n\nJiayi Chen\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nIn this blog post, I will implement the perceptron algorithm using numerical programming and demonstrate its use on synthetic data sets.\n\n\n\n\n\n\nFeb 26, 2023\n\n\nJiayi Chen\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nA test blog for my CSCI 0451.\n\n\n\n\n\n\nFeb 15, 2023\n\n\nJiayi Chen\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nAn example blog post illustrating the key techniques you’ll need to demonstrate your learning in CSCI 0451.\n\n\n\n\n\n\nJan 10, 2023\n\n\nPhil Chodrow\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/example-blog-post/index.html",
@@ -32,7 +32,7 @@
     "href": "posts/optimization-post/logisticRegression.html",
     "title": "Gradient Descent for Logistic Regression",
     "section": "",
-    "text": "import numpy as np\nimport pandas as pd\nimport seaborn as sns\nfrom matplotlib import pyplot as plt\nimport logisticRegression\nfrom logisticRegression import LogisticRegression\nfrom sklearn.datasets import make_blobs\nimport importlib\nimportlib.reload(logisticRegression)\n\nlogisticRegression.my_custom_function()\n\nI implemented this function in the file logisticRegression.py\nAnd here is the link to my source code (source.py): https://github.com/cjy-2001/cjy-2001.github.io/blob/main/posts/optimization-post/logisticRegression.py"
+    "text": "from matplotlib import pyplot as plt\nimport logisticRegression\nfrom logisticRegression import LogisticRegression\nfrom sklearn.datasets import make_blobs\nimport importlib\nimportlib.reload(logisticRegression)\n\nlogisticRegression.my_custom_function()\n\nI implemented this function in the file logisticRegression.py\nAnd here is the link to my source code (source.py): https://github.com/cjy-2001/cjy-2001.github.io/blob/main/posts/optimization-post/logisticRegression.py"
   },
   {
     "objectID": "posts/optimization-post/logisticRegression.html#implement-logistic-regression",

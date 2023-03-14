@@ -8,7 +8,7 @@
 
 <meta name="author" content="Jiayi Chen">
 <meta name="dcterms.date" content="2023-03-06">
-<meta name="description" content="In this blog post, I will implement several first-order methods: optimization algorithms based on the gradients of functions. I will implement simple gradient descent, a momentum method, and stochastic gradient descent, comparing their performance for training logistic regression.">
+<meta name="description" content="In this blog post, I will implement several first-order methods: optimization algorithms based on the gradients of functions, including simple gradient descent, a momentum method, and stochastic gradient descent. I will also compare their performance for training logistic regression.">
 
 <title>My Awesome CSCI 0451 Blog - Gradient Descent for Logistic Regression</title>
 <style>
@@ -178,7 +178,7 @@ background-size: cover;
       <h1 class="title">Gradient Descent for Logistic Regression</h1>
                   <div>
         <div class="description">
-          In this blog post, I will implement several first-order methods: optimization algorithms based on the gradients of functions. I will implement simple gradient descent, a momentum method, and stochastic gradient descent, comparing their performance for training logistic regression.
+          In this blog post, I will implement several first-order methods: optimization algorithms based on the gradients of functions, including simple gradient descent, a momentum method, and stochastic gradient descent. I will also compare their performance for training logistic regression.
         </div>
       </div>
                 </div>
@@ -215,17 +215,14 @@ background-size: cover;
 
 
 <div class="cell" data-tags="[]" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logisticRegression</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> logisticRegression <span class="im">import</span> LogisticRegression</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> make_blobs</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> importlib</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>importlib.<span class="bu">reload</span>(logisticRegression)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>logisticRegression.my_custom_function()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logisticRegression</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> logisticRegression <span class="im">import</span> LogisticRegression</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> make_blobs</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> importlib</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>importlib.<span class="bu">reload</span>(logisticRegression)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>logisticRegression.my_custom_function()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>I implemented this function in the file logisticRegression.py</code></pre>
 </div>
@@ -235,10 +232,10 @@ background-size: cover;
 <h2 class="anchored" data-anchor-id="implement-logistic-regression">1. Implement Logistic Regression</h2>
 <p>In my source file, I’ve implemented a LogisticRegression() class. It has similar user-facing functions as the Perceptron() class from the previous blog post. These are:</p>
 <ul>
-<li>LogisticRegression.fit(X, y) is the primary method. This method has no return value. If LR is a LogisticRegression object, then after LR.fit(X, y) is called, LR has an instance variable of weights called w. This w is the vector of weights, including the bias term. LR has an instance variable called LR.loss_history which is a list of the evolution of the loss over the training period (see LogisticRegression.loss(X, y) below).</li>
-<li>LogisticRegression.predict(X) will return a vector of predicted labels. These are the model’s predictions for the labels on the data.</li>
-<li>LogisticRegression.score(X, y) returns the accuracy of the predictions as a number between 0 and 1, with 1 corresponding to perfect classification.</li>
-<li>LogisticRegression.loss(X, y) returns the overall loss (empirical risk) of the current weights on X and y.</li>
+<li><code>LogisticRegression.fit(X, y)</code> is the primary method. This method has no return value. If LR is a LogisticRegression object, then after <code>LR.fit(X, y)</code> is called, LR has an instance variable of weights called w. This w is the vector of weights, including the bias term. LR has an instance variable called LR.loss_history which is a list of the evolution of the loss over the training period (see <code>LogisticRegression.loss(X, y)</code> below).</li>
+<li><code>LogisticRegression.predict(X)</code> will return a vector of predicted labels. These are the model’s predictions for the labels on the data.</li>
+<li><code>LogisticRegression.score(X, y)</code> returns the accuracy of the predictions as a number between 0 and 1, with 1 corresponding to perfect classification.</li>
+<li><code>LogisticRegression.loss(X, y)</code> returns the overall loss (empirical risk) of the current weights on X and y.</li>
 </ul>
 <section id="gradient-descent" class="level4">
 <h4 class="anchored" data-anchor-id="gradient-descent">Gradient Descent</h4>
