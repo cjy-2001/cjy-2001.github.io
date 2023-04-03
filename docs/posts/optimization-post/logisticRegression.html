@@ -214,15 +214,16 @@ background-size: cover;
 
 
 
-<div class="cell" data-tags="[]" data-execution_count="34">
+<div class="cell" data-tags="[]" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logisticRegression</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> logisticRegression <span class="im">import</span> LogisticRegression</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> make_blobs</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> importlib</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>importlib.<span class="bu">reload</span>(logisticRegression)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>logisticRegression.my_custom_function()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> logisticRegression <span class="im">import</span> LogisticRegression</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> make_blobs</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> importlib</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>importlib.<span class="bu">reload</span>(logisticRegression)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>logisticRegression.my_custom_function()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>I implemented this function in the file logisticRegression.py</code></pre>
 </div>
@@ -240,7 +241,7 @@ background-size: cover;
 <section id="gradient-descent" class="level4">
 <h4 class="anchored" data-anchor-id="gradient-descent">Gradient Descent</h4>
 <p>At first, I need to have some test data.</p>
-<div class="cell" data-tags="[]" data-execution_count="35">
+<div class="cell" data-tags="[]" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">12345</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>p_features <span class="op">=</span> <span class="dv">11</span></span>
@@ -255,12 +256,12 @@ background-size: cover;
 </div>
 </div>
 <p>Allow my algorithm to fit the data.</p>
-<div class="cell" data-execution_count="36">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>LR <span class="op">=</span> LogisticRegression()</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>LR.fit(X, y, alpha <span class="op">=</span> <span class="fl">0.05</span>, max_epochs <span class="op">=</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can visualize the resulting classifier and check the value of the loss that it achieves. The graph shows that my classifier converges.</p>
-<div class="cell" data-execution_count="37">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>X_ <span class="op">=</span> LR.pad(X)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>loss <span class="op">=</span> LR.empirical_risk(X_, y)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -281,7 +282,7 @@ background-size: cover;
 </div>
 </div>
 <p>Along with the basic gradient descent method, I have also implemented two more algorithms: stochastic gradient descent with and without momentum. For the momentum method, if the user specifies momentum=True, the momentum variable will set to be 0.8. It helps to consider previous good weights during updating. Here is an example plot showing the evolution of the loss function for the three algorithms:</p>
-<div class="cell" data-execution_count="38">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>LR <span class="op">=</span> LogisticRegression()</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>LR.fit_stochastic(X, y, </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                  max_epochs <span class="op">=</span> <span class="dv">1000</span>, </span>
@@ -329,7 +330,7 @@ background-size: cover;
 <section id="too-big-alpha" class="level4">
 <h4 class="anchored" data-anchor-id="too-big-alpha">2.1 Too big alpha</h4>
 <p>Here I’m setting alpha to be 0.95.</p>
-<div class="cell" data-execution_count="39">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>LR <span class="op">=</span> LogisticRegression()</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>LR.fit_stochastic(X, y, </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                  max_epochs <span class="op">=</span> <span class="dv">1000</span>, </span>
@@ -368,7 +369,7 @@ background-size: cover;
 <section id="different-batch-sizes" class="level4">
 <h4 class="anchored" data-anchor-id="different-batch-sizes">2.2 Different batch sizes</h4>
 <p>I’m going to choose three different batch sizes and compare their performance.</p>
-<div class="cell" data-execution_count="40">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>LR <span class="op">=</span> LogisticRegression()</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>LR.fit_stochastic(X, y, </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                  max_epochs <span class="op">=</span> <span class="dv">1000</span>, </span>
@@ -411,7 +412,7 @@ background-size: cover;
 <section id="advantage-of-momentum" class="level4">
 <h4 class="anchored" data-anchor-id="advantage-of-momentum">2.3 Advantage of momentum</h4>
 <p>I will show a case in which the use of momentum significantly speeds up convergence.</p>
-<div class="cell" data-execution_count="42">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>p_features <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>X, y <span class="op">=</span> make_blobs(n_samples <span class="op">=</span> <span class="dv">200</span>, n_features <span class="op">=</span> p_features <span class="op">-</span> <span class="dv">1</span>, centers <span class="op">=</span>  [(<span class="op">-</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>), (<span class="dv">1</span>, <span class="dv">1</span>)])</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>

@@ -32,7 +32,7 @@
     "href": "posts/optimization-post/logisticRegression.html",
     "title": "Gradient Descent for Logistic Regression",
     "section": "",
-    "text": "from matplotlib import pyplot as plt\nimport logisticRegression\nfrom logisticRegression import LogisticRegression\nfrom sklearn.datasets import make_blobs\nimport importlib\nimportlib.reload(logisticRegression)\n\nlogisticRegression.my_custom_function()\n\nI implemented this function in the file logisticRegression.py\nAnd here is the link to my source code (source.py): https://github.com/cjy-2001/cjy-2001.github.io/blob/main/posts/optimization-post/logisticRegression.py"
+    "text": "from matplotlib import pyplot as plt\nimport logisticRegression\nimport numpy as np\nfrom logisticRegression import LogisticRegression\nfrom sklearn.datasets import make_blobs\nimport importlib\nimportlib.reload(logisticRegression)\n\nlogisticRegression.my_custom_function()\n\nI implemented this function in the file logisticRegression.py\nAnd here is the link to my source code (source.py): https://github.com/cjy-2001/cjy-2001.github.io/blob/main/posts/optimization-post/logisticRegression.py"
   },
   {
     "objectID": "posts/optimization-post/logisticRegression.html#implement-logistic-regression",
@@ -79,30 +79,30 @@
   {
     "objectID": "posts/perceptron-post/perceptron.html",
     "href": "posts/perceptron-post/perceptron.html",
-    "title": "Perceptron Post",
+    "title": "Perceptron",
     "section": "",
     "text": "import numpy as np\nfrom matplotlib import pyplot as plt\nimport perceptron\nfrom perceptron import Perceptron\nfrom sklearn.datasets import make_blobs\n\nperceptron.my_custom_function()\n\nI implemented this function in the file perceptron.py\nAnd here is the link to my source code (source.py): https://github.com/cjy-2001/cjy-2001.github.io/blob/main/posts/perceptron-post/perceptron.py"
   },
   {
-    "objectID": "posts/perceptron-post/perceptron.html#section",
-    "href": "posts/perceptron-post/perceptron.html#section",
-    "title": "Perceptron Post",
-    "section": "1",
-    "text": "1\nFirst, I’d like to use linearly separable data and draw some visualizations. From the graph, it is easy to tell that the data is linearly seperable.\n\nnp.random.seed(12345)\n\nn = 100\np_features = 3\n\nX, y = make_blobs(n_samples = 100, n_features = p_features - 1, centers = [(-1.7, -1.7), (1.7, 1.7)])\n\nfig = plt.scatter(X[:,0], X[:,1], c = y)\nxlab = plt.xlabel(\"Feature 1\")\nylab = plt.ylabel(\"Feature 2\") \n\n\n\n\n\np = Perceptron()\np.fit(X, y, max_steps = 1000)\n\nprint(p.history[-10:])\n\n[0.86, 0.86, 0.86, 0.84, 0.84, 0.81, 0.81, 0.5, 0.83, 0.83]\n\n\nAfter implementing my fit function from perceptron.py, I’m able to train my model based on the data. As we can see from the history of accuracy, the accuracy increases to 1. Then I want to draw a separating line and the evolution of the accuracy.\n\nfig = plt.plot(p.history)\nxlab = plt.xlabel(\"Iteration\")\nylab = plt.ylabel(\"Accuracy\")\n\n\n\n\nAfter confirming that my model has 100% accuracy, I want to visualize the linear line from the graph.\n\ndef draw_line(w, x_min, x_max):\n  x = np.linspace(x_min, x_max, 101)\n  y = -(w[0]*x + w[2])/w[1]\n  plt.plot(x, y, color = \"black\")\n\nfig = plt.scatter(X[:,0], X[:,1], c = y)\nfig = draw_line(p.w, -2, 2)\n\nxlab = plt.xlabel(\"Feature 1\")\nylab = plt.ylabel(\"Feature 2\")"
+    "objectID": "posts/perceptron-post/perceptron.html#linearly-separable",
+    "href": "posts/perceptron-post/perceptron.html#linearly-separable",
+    "title": "Perceptron",
+    "section": "(1) Linearly Separable",
+    "text": "(1) Linearly Separable\nI’d like to show that if the data is linearly separable, then the perceptron algorithm will converge to weight vector describing a separating line (provided that the maximum number of iterations is large enough). To illustrate that idea, I first created 100 data points randomly, then I can use these linearly separable data to draw some visualizations.\n\nnp.random.seed(12345)\n\nn = 100\np_features = 3\n\nX, y = make_blobs(n_samples = 100, n_features = p_features - 1, centers = [(-1.7, -1.7), (1.7, 1.7)])\n\nfig = plt.scatter(X[:,0], X[:,1], c = y)\nxlab = plt.xlabel(\"Feature 1\")\nylab = plt.ylabel(\"Feature 2\") \n\n\n\n\nFrom the graph, it is easy to tell that the data is linearly separable.\n\np = Perceptron()\np.fit(X, y, max_steps = 1000)\n\nAfter implementing my fit function from perceptron.py, I’m able to train my model based on the data. I set the max_steps as 1000. Since I recorded the accuracy in the history instance variable, I want to draw a graph to see how it evolves.\n\nfig = plt.plot(p.history)\nxlab = plt.xlabel(\"Iteration\")\nylab = plt.ylabel(\"Accuracy\")\n\n\n\n\nAs we can see from the history of accuracy graph, the accuracy gradually increases to 1. After confirming that my model has 100% accuracy, I want to visualize the linear line from the graph.\n\ndef draw_line(w, x_min, x_max):\n  x = np.linspace(x_min, x_max, 101)\n  y = -(w[0]*x + w[2])/w[1]\n  plt.plot(x, y, color = \"black\")\n\nfig = plt.scatter(X[:,0], X[:,1], c = y)\nfig = draw_line(p.w, -2, 2)\n\nxlab = plt.xlabel(\"Feature 1\")\nylab = plt.ylabel(\"Feature 2\")\n\n\n\n\nThis line separates my data perfectly."
   },
   {
-    "objectID": "posts/perceptron-post/perceptron.html#section-1",
-    "href": "posts/perceptron-post/perceptron.html#section-1",
-    "title": "Perceptron Post",
-    "section": "2",
-    "text": "2\nFor the second part of my experiment, I’d like to use data that are not linearly separable and draw some visualizations.\n\nfrom sklearn.datasets import make_moons\n\nnp.random.seed(4)\n\nn = 100\n\nX, y = make_moons(n_samples=100, noise=0.13, random_state=42)\n\nfig = plt.scatter(X[:,0], X[:,1], c = y)\nxlab = plt.xlabel(\"Feature 1\")\nylab = plt.ylabel(\"Feature 2\") \n\np = Perceptron()\np.fit(X, y, max_steps = 1000)\n\nprint(p.history[-10:])\n\n[0.86, 0.86, 0.86, 0.86, 0.86, 0.8, 0.8, 0.8, 0.8, 0.8]\n\n\n\n\n\nThe picture tells us that the data is not linearly seperable, then we want to see how the accuracy performs.\n\nfig = plt.plot(p.history)\nxlab = plt.xlabel(\"Iteration\")\nylab = plt.ylabel(\"Accuracy\")\n\n\n\n\nLastly, the linear separating line also confirmed our previous findings.\n\nfig = plt.scatter(X[:,0], X[:,1], c = y)\nfig = draw_line(p.w, -2, 2)\n\nxlab = plt.xlabel(\"Feature 1\")\nylab = plt.ylabel(\"Feature 2\")"
+    "objectID": "posts/perceptron-post/perceptron.html#not-linearly-separable",
+    "href": "posts/perceptron-post/perceptron.html#not-linearly-separable",
+    "title": "Perceptron",
+    "section": "2 Not Linearly Separable",
+    "text": "2 Not Linearly Separable\nIn this case, I’m going to show that when the data is not linearly separable, the perceptron algorithm will not settle on a final value of, but will instead run until the maximum number of iterations is reached, without achieving perfect accuracy.\nSimilarly, I need to first create some data that are not linearly separable.\n\nfrom sklearn.datasets import make_moons\n\nnp.random.seed(4)\n\nn = 100\n\nX, y = make_moons(n_samples=100, noise=0.13, random_state=42)\n\nfig = plt.scatter(X[:,0], X[:,1], c = y)\nxlab = plt.xlabel(\"Feature 1\")\nylab = plt.ylabel(\"Feature 2\") \n\np = Perceptron()\np.fit(X, y, max_steps = 1000)\n\nprint(p.history[-10:])\n\n[0.86, 0.86, 0.86, 0.86, 0.86, 0.8, 0.8, 0.8, 0.8, 0.8]\n\n\n\n\n\nThe picture tells us that the data is not linearly separable, then we want to explore how the accuracy performs.\n\nfig = plt.plot(p.history)\nxlab = plt.xlabel(\"Iteration\")\nylab = plt.ylabel(\"Accuracy\")\n\n\n\n\nThe figure illustrates that the accuracy is oscillating between 0.5 and 0.9, thereby failing to converge to 1. To confirm my idea, I will try to draw a linear separable line.\n\nfig = plt.scatter(X[:,0], X[:,1], c = y)\nfig = draw_line(p.w, -2, 2)\n\nxlab = plt.xlabel(\"Feature 1\")\nylab = plt.ylabel(\"Feature 2\")\n\n\n\n\nAs expected, the line didn’t separate the data very well."
   },
   {
-    "objectID": "posts/perceptron-post/perceptron.html#section-2",
-    "href": "posts/perceptron-post/perceptron.html#section-2",
-    "title": "Perceptron Post",
-    "section": "3",
-    "text": "3\nIn part 3, I’d like to show that my algorithm is also able to work in more than 2 dimensions.\n\n#make some data\nnp.random.seed(123456)\n\nn = 100\np_features = 5\n\nX, y = make_blobs(n_samples = 100, n_features = p_features - 1, centers = [(-1.7, -1.7), (1.7, 1.7)])\n\np = Perceptron()\np.fit(X, y, max_steps = 1000)\n\nprint(p.history[-10:])\n\nfig = plt.plot(p.history)\nxlab = plt.xlabel(\"Iteration\")\nylab = plt.ylabel(\"Accuracy\")\n\n[0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 1.0]\n\n\n\n\n\nTherefore, according to the evolution of the score over the training period, I believe that the data is linearly separable, because the accuracy has reached 1."
+    "objectID": "posts/perceptron-post/perceptron.html#data-with-higher-dimensions",
+    "href": "posts/perceptron-post/perceptron.html#data-with-higher-dimensions",
+    "title": "Perceptron",
+    "section": "3 Data with Higher Dimensions",
+    "text": "3 Data with Higher Dimensions\nIn part 3, I’d like to show that my perceptron algorithm is also able to work in more than 2 dimensions. I’m going to use the data with 5 dimensions as an example to run my algorithm on.\n\n#make some data\nnp.random.seed(123456)\n\nn = 100\np_features = 5\n\nX, y = make_blobs(n_samples = 100, n_features = p_features - 1, centers = [(-1.7, -1.7), (1.7, 1.7)])\n\np = Perceptron()\np.fit(X, y, max_steps = 1000)\n\nprint(p.history[-10:])\n\nfig = plt.plot(p.history)\nxlab = plt.xlabel(\"Iteration\")\nylab = plt.ylabel(\"Accuracy\")\n\n[0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 1.0]\n\n\n\n\n\nTherefore, according to the evolution of the score over the training period, I believe that the data is linearly separable, because the accuracy has reached 1."
   },
   {
     "objectID": "posts/test-post/index.html",

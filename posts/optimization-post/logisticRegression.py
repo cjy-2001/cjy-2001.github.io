@@ -36,7 +36,7 @@ class LogisticRegression:
 
     def predict(self, X: np.matrix) -> np.ndarray:
         # predict function to predict the given X data
-        return np.sign(X.dot(self.w))
+        return (X.dot(self.w) > 0) *1
 
 
     def score(self, X: np.matrix, y: np.ndarray) -> int:
@@ -76,7 +76,7 @@ class LogisticRegression:
                 # make predictions
                 y_predict = X_@self.w 
                 # calculate the gradient
-                gradient = ((self.sigmoid(y_predict) - y)@X_)  / X_.shape[0]
+                gradient = np.sum((np.multiply((self.sigmoid(y_predict) - y)[:, np.newaxis], X_)), axis=0)  / X_.shape[0]
                 # update weights
                 self.w -= alpha*gradient
                 # calculate the new loss and make updating
@@ -139,7 +139,8 @@ class LogisticRegression:
                     # make predictions
                     y_batch_predict = x_batch@self.w 
                     # calculate the gradient
-                    gradient = ((self.sigmoid(y_batch_predict) - y_batch)@x_batch)  / x_batch.shape[0] 
+                    # gradient = ((self.sigmoid(y_batch_predict) - y_batch)@x_batch)  / x_batch.shape[0] 
+                    gradient = np.sum((np.multiply((self.sigmoid(y_batch_predict) - y_batch)[:, np.newaxis], x_batch)), axis=0)  / x_batch.shape[0]
 
                     # applying momentum formula
                     prev_w = self.w
