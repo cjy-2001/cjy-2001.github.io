@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jiayi Chen">
+<meta name="dcterms.date" content="2023-04-18">
+<meta name="description" content="In this blog post, I’ll watch a recorded lecture by our guest speaker Dr.&nbsp;Timnit Gebru, propose some questions for her in our conversation, and reflect on her broad talk to the Middlebury campus.">
+
+<title>My Awesome CSCI 0451 Blog - Talk by Dr.&nbsp;Timnit Gebru</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>
+    .quarto-title-block .quarto-title-banner {
+      color: white;
+background-image: url(../../img/landscape.png);
+background-size: cover;
+    }
+    </style>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">My Awesome CSCI 0451 Blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Talk by Dr.&nbsp;Timnit Gebru</h1>
+                  <div>
+        <div class="description">
+          In this blog post, I’ll watch a recorded lecture by our guest speaker Dr.&nbsp;Timnit Gebru, propose some questions for her in our conversation, and reflect on her broad talk to the Middlebury campus.
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Jiayi Chen </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 18, 2023</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#part-1.-questions-for-dr.-gebru" id="toc-part-1.-questions-for-dr.-gebru" class="nav-link active" data-scroll-target="#part-1.-questions-for-dr.-gebru">Part 1. Questions for Dr.&nbsp;Gebru</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#fate-in-computer-vision" id="toc-fate-in-computer-vision" class="nav-link" data-scroll-target="#fate-in-computer-vision">FATE in Computer Vision</a></li>
+  <li><a href="#proposed-question" id="toc-proposed-question" class="nav-link" data-scroll-target="#proposed-question">Proposed Question</a></li>
+  </ul></li>
+  <li><a href="#part-2.-dr.-gebrus-talk-at-middlebury" id="toc-part-2.-dr.-gebrus-talk-at-middlebury" class="nav-link" data-scroll-target="#part-2.-dr.-gebrus-talk-at-middlebury">Part 2. Dr.&nbsp;Gebru’s Talk “At” Middlebury</a>
+  <ul class="collapse">
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
+  </ul></li>
+  <li><a href="#part-3.-reflect-on-the-process" id="toc-part-3.-reflect-on-the-process" class="nav-link" data-scroll-target="#part-3.-reflect-on-the-process">Part 3. Reflect on the Process</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="part-1.-questions-for-dr.-gebru" class="level2">
+<h2 class="anchored" data-anchor-id="part-1.-questions-for-dr.-gebru">Part 1. Questions for Dr.&nbsp;Gebru</h2>
+<section id="introduction" class="level3">
+<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p>On April 24th, Middlebury College is excited to welcome Dr.&nbsp;Timnit Gebru as a virtual guest for the Machine Learning class and a speaker for the campus community. Dr.&nbsp;Gebru is a renowned computer scientist who specializes in algorithmic bias and data mining. Her advocacy for diversity in the technology field led her to co-found Black in AI, a community of Black researchers working in artificial intelligence. In addition, she founded the Distributed Artificial Intelligence Research Institute (DAIR). Dr.&nbsp;Gebru gained significant attention in December 2020 due to her controversial departure from Google, where she was the technical co-lead of the Ethical Artificial Intelligence Team. As a widely recognized expert in technology and AI ethics, Dr.&nbsp;Gebru has been named one of the World’s 50 Greatest Leaders by Fortune, one of Nature’s ten people who shaped science in 2021, and in 2022, one of Time’s most influential people. Our upcoming conversation with Dr.&nbsp;Gebru will provide us with valuable insights into the ethical challenges and implications of artificial intelligence.</p>
+</section>
+<section id="fate-in-computer-vision" class="level3">
+<h3 class="anchored" data-anchor-id="fate-in-computer-vision">FATE in Computer Vision</h3>
+<p>In her 2020 talk at the Conference on Computer Vision and Pattern Recognition, Dr.&nbsp;Gebru discussed the importance of incorporating fairness, accountability, transparency, and ethics (FATE) in computer vision systems. She highlighted various examples where biased data, flawed algorithms, and lack of transparency have led to unintended consequences and discriminatory outcomes. Dr.&nbsp;Gebru emphasized the need for a multidisciplinary approach to addressing these issues, including involving social scientists, ethicists, and domain experts in the development and deployment of AI systems.</p>
+<ul>
+<li>Issues with Abstraction:</li>
+</ul>
+<p>The practice of abstraction in Computer Vision and Machine Learning results in marginalized groups experiencing disparities in automated facial analysis tools. Both race and gender, as social constructs, have fluctuating classifications across time and space, leading to problems such as misgendering and harm to the transgender community.</p>
+<ul>
+<li>Dataset Prejudices:</li>
+</ul>
+<p>Datasets often suffer from a lack of diversity, with a predominantly white and male representation. This bias extends to real-life scenarios, including medical research and car crash testing. Automation prejudice, when combined with surveillance, can lead to damaging consequences for vulnerable populations.</p>
+<ul>
+<li>Facial Recognition Tech and Insufficient Regulation:</li>
+</ul>
+<p>Facial recognition technology exacerbates systemic racism and bias, as evidenced by its use in policing, racial profiling, and other oppressive methods. Companies like Faception and HireVue demonstrate the risks of amplifying existing biases. The AI field lacks proper safety testing and scrutiny, making it less regulated than industries such as pharmaceuticals.</p>
+<ul>
+<li>Self-protection:</li>
+</ul>
+<p>People can counteract surveillance systems using fashion items, long hair, or infrared LEDs. The primary lesson is that Computer Vision today intensifies systemic racism and bias, causing tangible harm. It is crucial to address these concerns and view technology from a social standpoint to comprehend its far-reaching impact.</p>
+<p><strong>tl;dr: As computer vision becomes increasingly integrated into our daily lives, it is crucial to ensure that these systems are designed and deployed responsibly, taking into account their potential biased outcomes.</strong></p>
+</section>
+<section id="proposed-question" class="level3">
+<h3 class="anchored" data-anchor-id="proposed-question">Proposed Question</h3>
+<p>Given the increasing integration of AI algorithms into our lives, how can educational institutions, like Middlebury, better prepare their students to contribute positively to those ethical implications?</p>
+</section>
+</section>
+<section id="part-2.-dr.-gebrus-talk-at-middlebury" class="level2">
+<h2 class="anchored" data-anchor-id="part-2.-dr.-gebrus-talk-at-middlebury">Part 2. Dr.&nbsp;Gebru’s Talk “At” Middlebury</h2>
+<p>In the evening of April 24th, at 7pm in Hillcrest 103, Dr.&nbsp;Gebru gave a talk on “Eugenics and the Promise of Utopia through Artificial General Intelligence.”</p>
+<section id="reflection" class="level3">
+<h3 class="anchored" data-anchor-id="reflection">Reflection</h3>
+<p>In your blog, write a few paragraphs in which you summarize Dr.&nbsp;Gebru’s argument. In the last of these paragraphs, include some of your own perspective. Do you agree? Disagree? What do you feel people should learn from Dr.&nbsp;Gebru’s discussion?</p>
+</section>
+</section>
+<section id="part-3.-reflect-on-the-process" class="level2">
+<h2 class="anchored" data-anchor-id="part-3.-reflect-on-the-process">Part 3. Reflect on the Process</h2>
+<p>In your blog, close out with a final paragraph reflecting on your time interacting with Dr.&nbsp;Gebru and her work. What did you learn from the experience? What did you find fun, exciting, or empowering? What did you find frustrating, challenging, or discouraging? What are you curious about now?</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
