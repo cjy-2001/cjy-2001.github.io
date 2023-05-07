@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/bias-post/bias.html",
       "/posts/timnit-post/timnit.html",
       "/posts/linear-post/linear.html",
       "/posts/penguins-post/penguins.html",
