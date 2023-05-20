@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jiayi Chen &amp; Bell Luo">
+<meta name="dcterms.date" content="2023-05-19">
+<meta name="description" content="In this final project, Bell and I formed a team and decided on a research topic: Housing Price Prediction. It has been a valuable learning experience in terms of implementing machine learning algorithms and conducting real-world data analysis.">
+
+<title>My Awesome CSCI 0451 Blog - Housing Price Prediction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>
+    .quarto-title-block .quarto-title-banner {
+      color: white;
+background-image: url(../../img/landscape.png);
+background-size: cover;
+    }
+    </style>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">My Awesome CSCI 0451 Blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Housing Price Prediction</h1>
+                  <div>
+        <div class="description">
+          In this final project, Bell and I formed a team and decided on a research topic: Housing Price Prediction. It has been a valuable learning experience in terms of implementing machine learning algorithms and conducting real-world data analysis.
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Jiayi Chen &amp; Bell Luo </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 19, 2023</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary"><strong>Summary</strong></a></li>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link" data-scroll-target="#abstract"><strong>Abstract</strong></a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><strong>Introduction</strong></a></li>
+  <li><a href="#value-statement" id="toc-value-statement" class="nav-link" data-scroll-target="#value-statement"><strong>Value Statement</strong></a></li>
+  <li><a href="#materials-and-methods" id="toc-materials-and-methods" class="nav-link" data-scroll-target="#materials-and-methods"><strong>Materials and Methods</strong></a>
+  <ul class="collapse">
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><strong>Data</strong></a></li>
+  <li><a href="#approach" id="toc-approach" class="nav-link" data-scroll-target="#approach"><strong>Approach</strong></a></li>
+  </ul></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><strong>Results</strong></a></li>
+  <li><a href="#concluding-discussion" id="toc-concluding-discussion" class="nav-link" data-scroll-target="#concluding-discussion"><strong>Concluding Discussion</strong></a></li>
+  <li><a href="#group-contributions-statement" id="toc-group-contributions-statement" class="nav-link" data-scroll-target="#group-contributions-statement"><strong>Group Contributions Statement</strong></a></li>
+  <li><a href="#personal-reflection" id="toc-personal-reflection" class="nav-link" data-scroll-target="#personal-reflection"><strong>Personal Reflection</strong></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary"><strong>Summary</strong></h2>
+<p>This blog post consists of 8 sections:</p>
+<ul>
+<li><p>Abstract</p></li>
+<li><p>Introduction</p></li>
+<li><p>Value Statement</p></li>
+<li><p>Material and Methods</p></li>
+<li><p>Results</p></li>
+<li><p>Concluding Discussion</p></li>
+<li><p>Group Contribution Statement</p></li>
+<li><p>Personal Reflection</p></li>
+</ul>
+</section>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract"><strong>Abstract</strong></h2>
+<p>This project aims to use machine learning techniques to analyze and predict housing prices across different counties in the United States, with a focus on understanding the similarities and differences in housing factors between different counties. Instead of using existing dataset, we have identified many relevant datasets and successfully merged them into one. We have built several models, including both classical models and Neural Networks (through Pytorch), and found that the Random Forest model tends to have the highest accuracy. Those models helped us to identify some common factors such as median income, longitude, and education attainment that affect housing prices the most.</p>
+<ul>
+<li>The <a href="https://github.com/doabell/451-proj">link</a> to our Github repository.</li>
+</ul>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction"><strong>Introduction</strong></h2>
+<p>Housing prices are a crucial aspect of the economy, directly influencing various sectors, including the real estate industry, financial markets, and consumers’ purchasing power. Understanding the determinants of housing prices is therefore essential for potential house buyers, sellers, renters, and city planners. Given that reason, this project aims to analyze the relationship between housing prices, demographic, and socioeconomic factors across counties. Therefore, we believe our project can inform and empower various sectors.</p>
+<p><span class="citation" data-cites="ho2021predicting">Ho, Tang, and Wong (<a href="#ref-ho2021predicting" role="doc-biblioref">2021</a>)</span> studied property price prediction using three machine learning algorithms, including Support Vector Machines (SVM), Random Forest (RF), and Gradient Boosting Machine (GBM) Their study found RF and GBM to provide superior performance over SVM. In our work, we also incorporate Random Forest models due to their demonstrated efficacy and robustness. Similarly, <span class="citation" data-cites="thamarai2020house">Thamarai and Malarvizhi (<a href="#ref-thamarai2020house" role="doc-biblioref">2020</a>)</span> highlighted the importance of utilizing different house attributes for price prediction, such as the number of bedrooms, age of the house, and proximity to essential facilities like schools and shopping malls. We too consider a multitude of housing factors and additional socioeconomic features in our analysis. In the meantime, <span class="citation" data-cites="zulkifley2020house">Zulkifley et al. (<a href="#ref-zulkifley2020house" role="doc-biblioref">2020</a>)</span> emphasized the importance of data mining in predicting housing prices and highlighted that locational and structural attributes significantly influence predictions We have included a comprehensive set of features in our models, including geospatial information, in line with their recommendations.</p>
+<p>With our analysis, we aim to contribute to this growing body of research, providing further insights into housing price prediction and its influencing factors.</p>
+</section>
+<section id="value-statement" class="level2">
+<h2 class="anchored" data-anchor-id="value-statement"><strong>Value Statement</strong></h2>
+<p><strong>Potentially benefit</strong>:</p>
+<ul>
+<li>Potential home-buyers and renters can make informed decisions when purchasing properties</li>
+<li>Real estate professionals can provide better guidance to their clients</li>
+<li>Urban planners and policymakers can make more informed decisions regarding zoning, land use, and housing policies</li>
+<li>Social workers can identify drivers of inequality in housing and rent prices and prioritize advocating for change in these key areas</li>
+</ul>
+<p><strong>Potentially excluded from benefit or harmed</strong>:</p>
+<ul>
+<li>Marginalized populations may be under or misrepresented in the data, so our model may not accurately reflect their needs and wants</li>
+<li>Inaccurate predictions leading to incorrect conclusions about a region and/or suboptimal buying/renting decisions</li>
+</ul>
+<p><strong>Personal Reasons</strong>:</p>
+<p>I chose this project because I believe a healthy house market is essential for the growth of an economy. It is relevant to everyone, so I’m interested in exploring those possible factors that might contribute to the housing price.</p>
+<p><strong>Conclusion</strong>:</p>
+<p>We are confident that the world will be a more equitable and sustainable place under the assumption that our data sources represent different demographics and regions fairly, and the world is a better place when housing prices are low and equitable across demographics.</p>
+</section>
+<section id="materials-and-methods" class="level2">
+<h2 class="anchored" data-anchor-id="materials-and-methods"><strong>Materials and Methods</strong></h2>
+<section id="data" class="level3">
+<h3 class="anchored" data-anchor-id="data"><strong>Data</strong></h3>
+<p>There are two main data resources: Zillow nad US census. We also collected other explanatory predictors such as land area and geospatial information (longitude &amp; latitude) from other sources.</p>
+<p>The US census data is from the 2017-2021 ACS 5-Year PUMS (American Community Survey, Public Use Microdata Sample), through the Census API: <a href="https://www.census.gov/programs-surveys/acs/microdata/documentation.html">PUMS Documentation</a>. The dataset contains information from the Census Bureau about individual people or housing units. We believe it is a representative and authoritative source of information for various demographic and economic factors that can influence housing prices and affordability.</p>
+<p><em>You might need a <a href="https://www.census.gov/data/developers/guidance/api-user-guide/help.html">Census API key</a>.</em></p>
+<p>Zillow Housing Data is a collection of datasets from Zillow, a real-estate marketplace company. It contains features include housing prices, rental prices, city, state, number of bedrooms, etc: <a href="https://www.zillow.com/research/data/">ZHVI All Homes (SFR, Condo/Co-op) Time Series, Smoothed, Seasonally Adjusted($), by County</a>.</p>
+<p>Lastly, we collected the geospatial data (centroids of every US county) from &lt;Census.gov&gt;: <a href="https://www.census.gov/geo/maps-data/data/tiger-geodatabases.html">U.S. Gazetteer Files 2022</a>.</p>
+</section>
+<section id="approach" class="level3">
+<h3 class="anchored" data-anchor-id="approach"><strong>Approach</strong></h3>
+<p><a href="https://www.census.gov/data/developers/data-sets/acs-5year/2021.html">Variable names</a>: see “2021 ACS Detailed Tables Variables”.</p>
+<p>We have selected the following variables:</p>
+<ul>
+<li><code>B01002_001E</code>: total median age</li>
+<li><code>B01003_001E</code>: total population</li>
+<li><code>B08134_001E</code>: travel time to work</li>
+<li><code>B15012_001E</code>: number of Bachelor’s degrees</li>
+<li><code>B19013_001E</code>: median household income, inflation-adjusted</li>
+<li><code>B19083_001E</code>: gini index of income inequality</li>
+<li><code>B23025_005E</code>: civilian labor force, unemployed</li>
+<li><code>B25001_001E</code>: total housing units</li>
+<li><code>B25002_002E</code>: occupancy is “occupied”</li>
+<li><code>B25018_001E</code>: median number of rooms</li>
+<li><code>B25035_001E</code>: median year of construction</li>
+<li><code>B25040_002E</code>: houses with heating fuel</li>
+<li><code>B25064_001E</code>: median gross rent</li>
+<li><code>B25081_001E</code>: count of housing units with a mortgage</li>
+</ul>
+<p>For bias auditing, variables <code>B02001_002E</code> to <code>B02001_010E</code> are relevant:</p>
+<ul>
+<li><code>B02001_002E</code>: White alone</li>
+<li><code>B02001_003E</code>: Black or African American alone</li>
+<li><code>B02001_004E</code>: American Indian and Alaska Native alone</li>
+<li><code>B02001_005E</code>: Asian alone</li>
+<li><code>B02001_006E</code>: Native Hawaiian and Other Pacific Islander alone</li>
+<li><code>B02001_007E</code>: Some other race alone</li>
+<li><code>B02001_008E</code>: Two or more races</li>
+<li><code>B02001_009E</code>: Two races including Some other race</li>
+<li><code>B02001_010E</code>: Two races excluding Some other race, and three or more races</li>
+</ul>
+<p>We used several popular classical models from <code>sklearn</code> module. Those include Simple Linear regression, Linear regression with SGD, Ridge regression, Gradient Boosting regression, Support Vector Machines, and Random Forest. We also tried to build our own Neural Network through Pytorch.</p>
+</section>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results"><strong>Results</strong></h2>
+<p>In order to evaluate those algorithms we used, we implemented two metrics to measure the relative performance:</p>
+<ol type="1">
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">Coefficient of Determination</a> (we simply called it “score”): it combines the residual sum of squares and the total sum of squares; the best possible score is 1.0 and it can be negative (because the model can be arbitrarily worse).</li>
+<li>Mean Squared Error (MSE): it represents the average of the squared differences between the predicted and actual values. In other words, it quantifies the difference between the estimator (the model’s prediction) and the actual value.</li>
+</ol>
+<p>Our random forest model achieved a score of 0.9109, while having a MSE of 1.60781e+09.</p>
+<p>Here is a rundown of our models’ performance, listed in order of decreasing test scores:</p>
+<ol type="1">
+<li>Random Forest Regression</li>
+<li>Gradient Boosting Regression</li>
+<li>Support Vector Regression</li>
+<li>Ridge Regression</li>
+<li>Linear Regression</li>
+</ol>
+</section>
+<section id="concluding-discussion" class="level2">
+<h2 class="anchored" data-anchor-id="concluding-discussion"><strong>Concluding Discussion</strong></h2>
+<p>In what ways did our project work? Did we meet the goals that we set at the beginning of the project? How do our results compare to the results of others who have also studied similar problems? If we had more time, data, or computational resources, what might we do differently in order to improve further?</p>
+</section>
+<section id="group-contributions-statement" class="level2">
+<h2 class="anchored" data-anchor-id="group-contributions-statement"><strong>Group Contributions Statement</strong></h2>
+<p>We usually meet and work together at every week. Bell was mainly responsible for data preprocessing and visualization. He wrote scripts to clean and merge the data. He also generated insightful visualizations such as the interactive map. In the meantime, he designed and executed numerous experiments, with a particular focus on model validation and performance assessment. Then he carried out several classical model experiments, particularly related to feature importance. Jiayi primarily focused on neural network’s source code. He was mainly coding the core algorithms and performing several experiments related to hyperparameter tuning. He also helped in finding suitable datasets and selecting variables, as well as plotting multicollinear features. Lastly, we worked on the slides and writings together.</p>
+</section>
+<section id="personal-reflection" class="level2">
+<h2 class="anchored" data-anchor-id="personal-reflection"><strong>Personal Reflection</strong></h2>
+<p>What did you learn from the process of researching, implementing, and communicating about your project? How do you feel about what you achieved? Did meet your initial goals? Did you exceed them or fall short? In what ways? In what ways will you carry the experience of working on this project into your next courses, career stages, or personal life?</p>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-ho2021predicting" class="csl-entry" role="doc-biblioentry">
+Ho, Winky KO, Bo-Sin Tang, and Siu Wai Wong. 2021. <span>“Predicting Property Prices with Machine Learning Algorithms.”</span> <em>Journal of Property Research</em> 38 (1): 48–70.
+</div>
+<div id="ref-thamarai2020house" class="csl-entry" role="doc-biblioentry">
+Thamarai, M, and SP Malarvizhi. 2020. <span>“House Price Prediction Modeling Using Machine Learning.”</span> <em>International Journal of Information Engineering &amp; Electronic Business</em> 12 (2).
+</div>
+<div id="ref-zulkifley2020house" class="csl-entry" role="doc-biblioentry">
+Zulkifley, Nor Hamizah, Shuzlina Abdul Rahman, Nor Hasbiah Ubaidullah, and Ismail Ibrahim. 2020. <span>“House Price Prediction Using a Machine Learning Model: A Survey of Literature.”</span> <em>International Journal of Modern Education &amp; Computer Science</em> 12 (6).
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
