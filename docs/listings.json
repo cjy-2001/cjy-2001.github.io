@@ -2,7 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/project-post/project-post.html",
+      "/posts/project-post/index.html",
       "/posts/unsupervised-post/unsupervised.html",
       "/posts/bias-post/bias.html",
       "/posts/timnit-post/timnit.html",
